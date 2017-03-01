@@ -14,6 +14,14 @@ local csarSlotBlock = {} -- DONT REMOVE!!!
 csarSlotBlock.showEnabledMessage = true -- if set to true, the player will be told that the slot is enabled when switching to it
 csarSlotBlock.version = "1.9.1"
 
+-- i18n.
+
+-- i18n = require 'i18n'
+
+-- i18n.loadFile("i18n/en.lua")
+-- i18n.loadFile("i18n/pt.lua")
+-- i18n.setLocale('pt')
+
 -- Logic for determining if player is allowed in a slot
 function csarSlotBlock.shouldAllowSlot(_playerID, _slotID) -- _slotID == Unit ID unless its multi aircraft in which case slotID is unitId_seatID
 
@@ -163,8 +171,10 @@ csarSlotBlock.onPlayerTryChangeSlot = function(playerID, side, slotID)
 
                 if _playerName ~= nil and csarSlotBlock.showEnabledMessage and
                         csarSlotBlock.csarSlotBlockEnabled() and csarSlotBlock.csarMode() > 0 then
-                    --Disable chat message to user
-                    local _chatMessage = string.format("*** %s - Aircraft Enabled! If you will need to be rescued by CSAR. Make sure you eject and Protect the Helis! ***",_playerName)
+                    --Disable chat message to user                    
+	                --local _chatMessage = string.format("*** %s - Aircraft Enabled! If you eject you will need to be rescued by CSAR. Protect the Helis! ***",_playerName)
+					local _chatMessage = string.format("*** %s, se você ejetar seu slot ficará DESATIVADO até o piloto ser resgatado pelo Grupo de Busca e Salvamento ***",_playerName)
+                    --local _chatMessage = i18n('welcome', {_playerName})
                     net.send_chat_to(_chatMessage, playerID)
                 end
 
@@ -206,7 +216,9 @@ csarSlotBlock.rejectPlayer = function(playerID)
 
     if _playerName ~= nil then
         --Disable chat message to user
-        local _chatMessage = string.format("*** Sorry %s - Slot DISABLED, Pilot has been shot down and needs to be rescued by CSAR ***",_playerName)
+        -- local _chatMessage = string.format("*** Sorry %s - Slot DISABLED, Pilot has been shot down and needs to be rescued by CSAR ***",_playerName)
+		local _chatMessage = string.format("*** Desculpe, %s: este slot foi DESATIVADO. O piloto precisa ser resgatado pelo Grupo de Busca e Salvamento ***",_playerName)        
+        --local _chatMessage = i18n('rejectPlayer', {_playerName})
         net.send_chat_to(_chatMessage, playerID)
     end
 end
