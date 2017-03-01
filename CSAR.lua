@@ -12,94 +12,14 @@ csar = {}
 
 -- SETTINGS FOR MISSION DESIGNER vvvvvvvvvvvvvvvvvv
 csar.csarUnits = {
-    "helicargo1",
-    "helicargo2",
-    "helicargo3",
-    "helicargo4",
-    "helicargo5",
-    "helicargo6",
-    "helicargo7",
-    "helicargo8",
-    "helicargo9",
-    "helicargo10",
-
-    "helicargo11",
-    "helicargo12",
-    "helicargo13",
-    "helicargo14",
-    "helicargo15",
-    "helicargo16",
-    "helicargo17",
-    "helicargo18",
-    "helicargo19",
-    "helicargo20",
-
-    "helicargo21",
-    "helicargo22",
-    "helicargo23",
-    "helicargo24",
-    "helicargo25",
-
-    "MEDEVAC #1",
-    "MEDEVAC #2",
-    "MEDEVAC #3",
-    "MEDEVAC #4",
-    "MEDEVAC #5",
-    "MEDEVAC #6",
-    "MEDEVAC #7",
-    "MEDEVAC #8",
-    "MEDEVAC #9",
-    "MEDEVAC #10",
-    "MEDEVAC #11",
-    "MEDEVAC #12",
-    "MEDEVAC #13",
-    "MEDEVAC #14",
-    "MEDEVAC #15",
-    "MEDEVAC #16",
-
-    "MEDEVAC RED #1",
-    "MEDEVAC RED #2",
-    "MEDEVAC RED #3",
-    "MEDEVAC RED #4",
-    "MEDEVAC RED #5",
-    "MEDEVAC RED #6",
-    "MEDEVAC RED #7",
-    "MEDEVAC RED #8",
-    "MEDEVAC RED #9",
-    "MEDEVAC RED #10",
-    "MEDEVAC RED #11",
-    "MEDEVAC RED #12",
-    "MEDEVAC RED #13",
-    "MEDEVAC RED #14",
-    "MEDEVAC RED #15",
-    "MEDEVAC RED #16",
-    "MEDEVAC RED #17",
-    "MEDEVAC RED #18",
-    "MEDEVAC RED #19",
-    "MEDEVAC RED #20",
-    "MEDEVAC RED #21",
-
-    "MEDEVAC BLUE #1",
-    "MEDEVAC BLUE #2",
-    "MEDEVAC BLUE #3",
-    "MEDEVAC BLUE #4",
-    "MEDEVAC BLUE #5",
-    "MEDEVAC BLUE #6",
-    "MEDEVAC BLUE #7",
-    "MEDEVAC BLUE #8",
-    "MEDEVAC BLUE #9",
-    "MEDEVAC BLUE #10",
-    "MEDEVAC BLUE #11",
-    "MEDEVAC BLUE #12",
-    "MEDEVAC BLUE #13",
-    "MEDEVAC BLUE #14",
-    "MEDEVAC BLUE #15",
-    "MEDEVAC BLUE #16",
-    "MEDEVAC BLUE #17",
-    "MEDEVAC BLUE #18",
-    "MEDEVAC BLUE #19",
-    "MEDEVAC BLUE #20",
-    "MEDEVAC BLUE #21",
+    "Pontiac 91",
+    "Pontiac 92",
+    "Pontiac 93",
+    "Pontiac 94",
+    "391",
+    "392",
+    "393",
+    "394"
 } -- List of all the MEDEVAC _UNIT NAMES_ (the line where it says "Pilot" in the ME)!
 
 csar.bluemash = {
@@ -107,12 +27,6 @@ csar.bluemash = {
     "BlueMASH #2",
     "BlueMASH #3",
     "BlueMASH #4",
-    "BlueMASH #5",
-    "BlueMASH #6",
-    "BlueMASH #7",
-    "BlueMASH #8",
-    "BlueMASH #9",
-    "BlueMASH #10"
 } -- The unit that serves as MASH for the blue side
 
 csar.redmash = {
@@ -120,23 +34,17 @@ csar.redmash = {
     "RedMASH #2",
     "RedMASH #3",
     "RedMASH #4",
-    "RedMASH #5",
-    "RedMASH #6",
-    "RedMASH #7",
-    "RedMASH #8",
-    "RedMASH #9",
-    "RedMASH #10"
 } -- The unit that serves as MASH for the red side
 
 
-csar.csarMode = 0
+csar.csarMode = 2
 
 --      0 - No Limit - NO Aircraft disabling
 --      1 - Disable Aircraft when its down - Timeout to reenable aircraft
 --      2 - Disable Aircraft for Pilot when he's shot down -- timeout to reenable pilot for aircraft
 --      3 - Pilot Life Limit - No Aircraft Disabling -- timeout to reset lives?
 
-csar.maxLives = 8 -- Maximum pilot lives
+csar.maxLives = 4 -- Maximum pilot lives
 
 csar.countCSARCrash = false -- If you set to true, pilot lives count for CSAR and CSAR aircraft will count.
 
@@ -145,11 +53,11 @@ csar.reenableIfCSARCrashes = true -- If a CSAR heli crashes, the pilots are coun
 -- - I recommend you leave the option on below IF USING MODE 1 otherwise the
 -- aircraft will be disabled for the duration of the mission
 csar.disableAircraftTimeout = true -- Allow aircraft to be used after 20 minutes if the pilot isnt rescued
-csar.disableTimeoutTime = 20 -- Time in minutes for TIMEOUT
+csar.disableTimeoutTime = 60 -- Time in minutes for TIMEOUT
 
 csar.destructionHeight = 150 -- height in meters an aircraft will be destroyed at if the aircraft is disabled
 
-csar.enableForAI = false -- set to false to disable AI units from being rescued.
+csar.enableForAI = true -- set to false to disable AI units from being rescued.
 
 csar.enableForRED = true -- enable for red side
 
@@ -168,7 +76,7 @@ csar.coordtype = 3 -- Use Lat/Long DDM (0), Lat/Long DMS (1), MGRS (2), Bullseye
 csar.coordaccuracy = 1 -- Precision of the reported coordinates, see MIST-docs at http://wiki.hoggit.us/view/GetMGRSString
 -- only applies to _non_ bullseye coords
 
-csar.immortalcrew = true -- Set to true to make wounded crew immortal
+csar.immortalcrew = false -- Set to true to make wounded crew immortal
 csar.invisiblecrew = true -- Set to true to make wounded crew insvisible
 
 csar.messageTime = 30 -- Time to show the intial wounded message for in seconds
@@ -344,7 +252,7 @@ function csar.eventHandler:onEvent(_event)
             -- Catch multiple events here?
             if csar.takenOff[_event.initiator:getName()] == true or _unit:inAir() then
 
-                trigger.action.outTextForCoalition(_unit:getCoalition(), "MAYDAY MAYDAY! " .. _unit:getTypeName() .. " shot down. No Chute!", 10)
+                trigger.action.outTextForCoalition(_unit:getCoalition(), _unit:getPlayerName() .. " (" .. _unit:getTypeName() .. "): MAYDAY M....... [morreu]", 40)
                 csar.handleEjectOrCrash(_unit, true)
             else
                 env.info("Pilot Hasnt taken off, ignore")
@@ -388,7 +296,7 @@ function csar.eventHandler:onEvent(_event)
             local _spawnedGroup = csar.spawnGroup(_unit)
             csar.addSpecialParametersToGroup(_spawnedGroup)
 
-            trigger.action.outTextForCoalition(_unit:getCoalition(), "MAYDAY MAYDAY! " .. _unit:getTypeName() .. " shot down. Chute Spotted!", 10)
+            trigger.action.outTextForCoalition(_unit:getCoalition(), _unit:getPlayerName() .. " (" .. _unit:getTypeName() .. "): MAYDAY MAYDAY! Ejetando!", 40)
 
             local _freq = csar.generateADFFrequency()
 
@@ -400,9 +308,9 @@ function csar.eventHandler:onEvent(_event)
             -- Generate DESCRIPTION text
             local _text = " "
             if _unit:getPlayerName() ~= nil then
-                _text = "Pilot " .. _unit:getPlayerName() .. " of " .. _unit:getName() .. " - " .. _unit:getTypeName()
+                _text =  _unit:getName()..", ".._unit:getPlayerName()..", piloto de ".._unit:getTypeName()
             else
-                _text = "AI Pilot of " .. _unit:getName() .. " - " .. _unit:getTypeName()
+                _text = _unit:getName()..", piloto (AI) de ".._unit:getTypeName()
             end
 
             csar.woundedGroups[_spawnedGroup:getName()] = { side = _spawnedGroup:getCoalition(), originalUnit = _unit:getName(), frequency = _freq, desc = _text, player = _unit:getPlayerName() }
@@ -641,21 +549,21 @@ function csar.checkDisabledAircraftStatus(_args)
 
                     if csar.disableAircraftTimeout then
 
-                        local _text = string.format("This aircraft cannot be flow as the pilot was killed in a crash. Reinforcements in %.2dM,%.2dS\n\nIt will be DESTROYED on takeoff!", (_time / 60), _time % 60)
+                        local _text = string.format("*** Esta aeronave não pode ser usada pois o piloto se acidentou com ela e será destruída na decolagem.\nPorém, faltam %.1dM:%.2dS para liberação da mesma através de reforços ***", (_time / 60), _time % 60)
 
                         --display message,
                         csar.displayMessageToSAR(_unit, _text, 10, true)
                     else
                         --display message,
-                        csar.displayMessageToSAR(_unit, "This aircraft cannot be flown again as the pilot was killed in a crash\n\nIt will be DESTROYED on takeoff!", 10, true)
+                        csar.displayMessageToSAR(_unit, "*** Esta aeronave não pode ser usada pois o piloto se acidentou com ela e será destruída na decolagem ***", 10, true)
                     end
                 else
                     if csar.disableAircraftTimeout then
                         --display message,
-                        csar.displayMessageToSAR(_unit, _details.desc .. " needs to be rescued or reinforcements arrive before this aircraft can be flown again! Reinforcements in " .. string.format("%.2dM,%.2d", (_time / 60), _time % 60) .. "\n\nIt will be DESTROYED on takeoff!", 10, true)
+                        csar.displayMessageToSAR(_unit, "*** Esta aeronave foi acidentada no comando do piloto " .. _details.desc .. " e agora precisa ser resgatado antes de se poder usá-la novamente ou ela será destruída na decolagem.\nPorém, faltam " .. string.format("%.2dM:%.2dS", (_time / 60), _time % 60) .. " para liberação da mesma através de reforços ***", 10, true)
                     else
                         --display message,
-                        csar.displayMessageToSAR(_unit, _details.desc .. " needs to be rescued before this aircraft can be flown again!\n\nIt will be DESTROYED on takeoff!", 10, true)
+                        csar.displayMessageToSAR(_unit, "*** Esta aeronave foi acidentada no comando do piloto " .. _details.desc .. " e agora precisa ser resgatado antes de se poder usá-la novamente ou ela será destruída na decolagem ***", 10, true)
                     end
                 end
 
@@ -681,21 +589,21 @@ function csar.checkDisabledAircraftStatus(_args)
 
                 if csar.disableAircraftTimeout then
 
-                    local _text = string.format("This aircraft cannot be flow as the pilot was killed in a crash. Reinforcements in %.2dM,%.2dS\n\nIt will be DESTROYED on takeoff!", (_time / 60), _time % 60)
+                    local _text = string.format("*** Esta aeronave não pode ser usada pois o piloto se acidentou com ela e será destruída na decolagem.\nPorém, faltam %.1dM:%.2dS para liberação da mesma através de reforços ***", (_time / 60), _time % 60)
 
                     --display message,
                     csar.displayMessageToSAR(_unit, _text, 10, true)
                 else
                     --display message,
-                    csar.displayMessageToSAR(_unit, "This aircraft cannot be flown again as the pilot was killed in a crash\n\nIt will be DESTROYED on takeoff!", 10, true)
+                    csar.displayMessageToSAR(_unit, "*** Esta aeronave não pode ser usada pois o piloto se acidentou com ela e será destruída na decolagem ***", 10, true)
                 end
             else
                 if csar.disableAircraftTimeout then
                     --display message,
-                    csar.displayMessageToSAR(_unit, _details.desc .. " needs to be rescued or reinforcements arrive before this aircraft can be flown again! Reinforcements in " .. string.format("%.2dM,%.2d", (_time / 60), _time % 60) .. "\n\nIt will be DESTROYED on takeoff!", 10, true)
+                    csar.displayMessageToSAR(_unit, "*** Esta aeronave foi acidentada no comando do piloto " .. _details.desc .. " e agora precisa ser resgatado antes de se poder usá-la novamente ou ela será destruída na decolagem.\nPorém, faltam " .. string.format("%.2dM:%.2dS", (_time / 60), _time % 60) .. " para liberação da mesma através de reforços ***", 10, true)
                 else
                     --display message,
-                    csar.displayMessageToSAR(_unit, _details.desc .. " needs to be rescued before this aircraft can be flown again!\n\nIt will be DESTROYED on takeoff!", 10, true)
+                    csar.displayMessageToSAR(_unit, "*** Esta aeronave foi acidentada no comando do piloto " .. _details.desc .. " e agora precisa ser resgatado antes de se poder usá-la novamente ou ela será destruída na decolagem ***", 10, true)
                 end
             end
 
@@ -751,7 +659,7 @@ function csar.destroyUnit(_unit)
 
         if csar.heightDiff(_unit) > csar.destructionHeight then
 
-            csar.displayMessageToSAR(_unit, "**** Aircraft Destroyed as the pilot needs to be rescued or you have no lives! ****", 10, true)
+            csar.displayMessageToSAR(_unit, "A aeronave foi destruída pois o piloto precisa ser resgatado primeiro antes de poder voar novamente.", 30, true)
             --if we're off the ground then explode
             trigger.action.explosion(_unit:getPoint(), 100);
 
@@ -868,7 +776,7 @@ function csar.createUnit(_x, _y, _heading, _type)
 
     local _id = mist.getNextUnitId();
 
-    local _name = string.format("Wounded Pilot #%s", _id)
+    local _name = string.format("Piloto ejetado #%s", _id)
 
     local _newUnit = {
         ["y"] = _y,
@@ -891,7 +799,7 @@ function csar.initSARForPilot(_downedGroup, _freq)
     local _coordinatesText = csar.getPositionOfWounded(_downedGroup)
 
     local
-    _text = string.format("%s requests SAR at %s, beacon at %.2f KHz",
+    _text = string.format("%s solicita SAR às %s, rádio em %.2f KHz",
         _leader:getName(), _coordinatesText, _freq / 1000)
 
     local _randPercent = math.random(1, 100)
@@ -1027,8 +935,8 @@ function csar.pickupUnit(_heliUnit, _pilotName, _woundedGroup, _woundedGroupName
 
     -- if the heli can't pick them up, show a message and return
     if _unitsInHelicopter + 1 > csar.max_units then
-        csar.displayMessageToSAR(_heliUnit, string.format("%s, %s. We're already crammed with %d guys! Sorry!",
-            _pilotName, _heliName, _unitsInHelicopter, _unitsInHelicopter), 10)
+        csar.displayMessageToSAR(_heliUnit, string.format("[%s]\n%s, já estamos lotados com uns %d caras! Desculpe!",
+            _heliName, _pilotName, _unitsInHelicopter, _unitsInHelicopter), 10)
         return true
     end
 
@@ -1043,7 +951,7 @@ function csar.pickupUnit(_heliUnit, _pilotName, _woundedGroup, _woundedGroupName
 
     Group.destroy(_woundedLeader:getGroup())
 
-    csar.displayMessageToSAR(_heliUnit, string.format("%s: %s I'm in! Get to the MASH ASAP! ", _heliName, _pilotName), 10)
+    csar.displayMessageToSAR(_heliUnit, string.format("[%s]\n%s, eu já estou dentro!\n*** Chegue a uma FARP ou Base Alidada o mais rápido possível ***", _pilotName, _heliName), 10)
 
     timer.scheduleFunction(csar.scheduledSARFlight,
         {
@@ -1072,7 +980,7 @@ function csar.checkCloseWoundedGroup(_distance, _heliUnit, _heliName, _woundedGr
 
     if csar.heliVisibleMessage[_lookupKeyHeli] == nil then
 
-        csar.displayMessageToSAR(_heliUnit, string.format("%s: %s. I hear you! Damn that thing is loud! Land or hover by the smoke.", _heliName, _pilotName), 30)
+        csar.displayMessageToSAR(_heliUnit, string.format("[%s]\n%s, eu estou te ouvindo! Mas que coisa barulhenta!\n*** Pouse ou faça um hover sobre a fumaça ***", _pilotName, _heliName), 30)
 
         --mark as shown for THIS heli and THIS group
         csar.heliVisibleMessage[_lookupKeyHeli] = true
@@ -1082,7 +990,7 @@ function csar.checkCloseWoundedGroup(_distance, _heliUnit, _heliName, _woundedGr
 
         if csar.heliCloseMessage[_lookupKeyHeli] == nil then
 
-            csar.displayMessageToSAR(_heliUnit, string.format("%s: %s. You're close now! Land or hover at the smoke.", _heliName, _pilotName), 10)
+            csar.displayMessageToSAR(_heliUnit, string.format("[%s]\n%s, agora você está perto\n*** Pouse ou faça um hover sobre a fumaça ***", _pilotName, _heliName), 10)
 
             --mark as shown for THIS heli and THIS group
             csar.heliCloseMessage[_lookupKeyHeli] = true
@@ -1121,14 +1029,14 @@ function csar.checkCloseWoundedGroup(_distance, _heliUnit, _heliName, _woundedGr
                         end
 
                         if _time > 0 then
-                            csar.displayMessageToSAR(_heliUnit, "Hovering above " .. _pilotName .. ". \n\nHold hover for " .. _time .. " seconds to winch them up. \n\nIf the countdown stops you're too far away!", 10, true)
+                            csar.displayMessageToSAR(_heliUnit, "*** Sobrevoando o piloto " .. _pilotName .. ".\nMantenha um hover durante " .. _time .. " segundos para guinchá-lo.\nSe a contagem parar é porque você se afastou!", 10, true)
                         else
                             csar.hoverStatus[_lookupKeyHeli] = nil
                             return csar.pickupUnit(_heliUnit, _pilotName, _woundedGroup, _woundedGroupName)
                         end
                         _reset = false
                     else
-                        csar.displayMessageToSAR(_heliUnit, "Too high to winch " .. _pilotName .. " \nReduce height and hover for 10 seconds!", 5, true)
+                        csar.displayMessageToSAR(_heliUnit, "*** Muito alto para guinchar o piloto " .. _pilotName .. ".\nReduza a altura e faça um hover por 10 segundos ***", 5, true)
                     end
                 end
             end
@@ -1158,7 +1066,7 @@ function csar.checkGroupNotKIA(_woundedGroup, _woundedGroupName, _heliUnit, _hel
                 if _group.side == _heliUnit:getCoalition() then
                     inTransit = true
 
-                    csar.displayToAllSAR(string.format("%s has been picked up by %s", _woundedGroupName, _currentHeli), _heliUnit:getCoalition(), _heliName)
+                    csar.displayToAllSAR(string.format("%s foi pego por %s", _woundedGroupName, _currentHeli), _heliUnit:getCoalition(), _heliName)
 
                     break
                 end
@@ -1170,7 +1078,7 @@ function csar.checkGroupNotKIA(_woundedGroup, _woundedGroupName, _heliUnit, _hel
         if inTransit == false then
             --DEAD
 
-            csar.displayToAllSAR(string.format("%s is KIA ", _woundedGroupName), _heliUnit:getCoalition(), _heliName)
+            csar.displayToAllSAR(string.format("%s é K.I.A. (Killed In Action - Morto Em Combate)", _woundedGroupName), _heliUnit:getCoalition(), _heliName)
         end
 
         --     medevac.displayMessageToSAR(_heliUnit, string.format("%s: %s is dead", _heliName,_woundedGroupName ),10)
@@ -1265,7 +1173,7 @@ function csar.rescuePilots(_heliUnit)
 
     csar.inTransitGroups[_heliUnit:getName()] = nil
 
-    local _txt = string.format("%s: The pilots have been taken to the\nmedical clinic. Good job!", _heliUnit:getName())
+    local _txt = string.format("Os pilotos foram levados para a clínica médica.\nBom trabalho, %s!", _heliUnit:getName())
 
     -- enable pilots again
     for _, _rescueGroup in pairs(_rescuedGroups) do
@@ -1423,7 +1331,7 @@ function csar.displayActiveSAR(_unitName)
 
             local _distance = csar.getDistance(_heli:getPoint(), _woundedGroup[1]:getPoint())
 
-            table.insert(_csarList, { dist = _distance, msg = string.format("%s at %s - %.2f KHz ADF - %.3fKM ", _value.desc, _coordinatesText, _value.frequency / 1000, _distance / 1000.0) })
+            table.insert(_csarList, { dist = _distance, msg = string.format("%s em %s - %.2f KHz ADF - %.3f Km ", _value.desc, _coordinatesText, _value.frequency / 1000, _distance / 1000.0) })
         end
     end
 
@@ -1486,12 +1394,12 @@ function csar.signalFlare(_unitName)
 
         local _clockDir = csar.getClockDirection(_heli, _closet.pilot)
 
-        local _msg = string.format("%s - %.2f KHz ADF - %.3fM - Popping Signal Flare at your %s ", _closet.groupInfo.desc, _closet.groupInfo.frequency / 1000, _closet.distance, _clockDir)
+        local _msg = string.format("[%s - %.2f KHz ADF - %.3fM]\nLancei um flare às suas %s ", _closet.groupInfo.desc, _closet.groupInfo.frequency / 1000, _closet.distance, _clockDir)
         csar.displayMessageToSAR(_heli, _msg, 20)
 
         trigger.action.signalFlare(_closet.pilot:getPoint(), 1, 0)
     else
-        csar.displayMessageToSAR(_heli, "No Pilots within 8KM", 20)
+        csar.displayMessageToSAR(_heli, "Nenhum piloto num raio de 8 Km", 20)
     end
 end
 
@@ -1557,10 +1465,10 @@ function csar.checkOnboard(_unitName)
     local _inTransit = csar.inTransitGroups[_unitName]
 
     if _inTransit == nil or csar.tableLength(_inTransit) == 0 then
-        csar.displayMessageToSAR(_unit, "No Rescued Pilots onboard", 30)
+        csar.displayMessageToSAR(_unit, "Nenhum piloto resgatado a bordo", 30)
     else
 
-        local _text = "Onboard - RTB to FARP/Airfield or MASH: "
+        local _text = "A bordo - RTB para FARP/Airfield ou MASH: "
 
         for _, _onboard in pairs(csar.inTransitGroups[_unitName]) do
             _text = _text .. "\n" .. _onboard.desc
@@ -1593,12 +1501,12 @@ function csar.addMedevacMenuItem()
 
                     local _rootPath = missionCommands.addSubMenuForGroup(_groupId, "CSAR")
 
-                    missionCommands.addCommandForGroup(_groupId, "List Active CSAR", _rootPath, csar.displayActiveSAR,
+                    missionCommands.addCommandForGroup(_groupId, "Lista de CSAR ativos", _rootPath, csar.displayActiveSAR,
                         _unitName)
 
-                    missionCommands.addCommandForGroup(_groupId, "Check Onboard", _rootPath, csar.checkOnboard, _unitName)
+                    missionCommands.addCommandForGroup(_groupId, "Checar a bordo", _rootPath, csar.checkOnboard, _unitName)
 
-                    missionCommands.addCommandForGroup(_groupId, "Request Signal Flare", _rootPath, csar.signalFlare, _unitName)
+                    missionCommands.addCommandForGroup(_groupId, "Solicitar sinal de flare", _rootPath, csar.signalFlare, _unitName)
                 end
             end
         else
